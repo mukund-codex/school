@@ -1,0 +1,24 @@
+Dashboard:
+No. of teachers
+No of students
+Male students
+Female students
+
+
+Forms design:
+Refer :: file:///home/mukunda/dev/mukunda/school/demo.dashboardpack.com/sales-html/Basic_Elements.html
+Change form design.
+
+Documents Upload for every role.
+
+Teacher Total leave counts added by admin.
+LOP notification while applying leaves for teacher.
+
+
+Permissions checkbox while adding teacher.
+
+
+Teacher Module
+Class Module
+Subject Module
+Student Module

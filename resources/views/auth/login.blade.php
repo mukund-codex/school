@@ -1,47 +1,96 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+@include('common.header')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<body>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<section class="main_content dashboard_part large_header_bg">
+
+    <div class="main_content_iner ">
+        <div class="container-fluid p-0">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="dashboard_header mb_50">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="dashboard_header_title">
+                                    <h3>Login</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="white_box mb_30">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+
+                                <div class="modal-content cs_modal">
+                                    <div class="modal-header justify-content-center theme_bg_1">
+                                        <h5 class="modal-title text_white">Log in</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{ route('login-handler') }}">
+                                            @csrf
+                                            @include('common.form-alert')
+                                            <div class>
+                                                <input type="email" class="form-control" name="email" id="email"
+                                                       placeholder="Enter your email" value="{{ old('email') }}">
+                                                @error('email')
+                                                <span class="text-danger ml-2" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <div class>
+                                                <label for="name"></label>
+                                                <select class="form-control" name="role" id="name">
+                                                    <option> Select your role</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="teacher">Teacher</option>
+                                                    <option value="librarian">Librarian</option>
+                                                    <option value="parent">Parent</option>
+                                                    <option value="student">Student</option>
+                                                </select>
+                                                @error('role')
+                                                <span class="text-danger ml-2" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                            <br>
+                                            <div class>
+                                                <input type="password" class="form-control" placeholder="Password" name="password"
+                                                       id="password" value="{{ old('password') }}">
+                                                @error('password')
+                                                <span class="text-danger ml-2" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <button type="submit" name="submit" class="btn btn-primary btn-block">Log In.</button>
+
+                                            <p>Need an account? <a data-bs-toggle="modal" data-bs-target="#sing_up"
+                                                                   data-bs-dismiss="modal" href="{{ route('register') }}"> Sign Up</a></p>
+                                            <div class="text-center">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password"
+                                                   data-bs-dismiss="modal" class="pass_forget_btn">Forget
+                                                    Password?</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    @include('common.footer')
+</section>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</body>

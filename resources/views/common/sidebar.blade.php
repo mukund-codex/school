@@ -70,5 +70,13 @@
                 <span>Class Schedule</span>
             </a>
         </li>
+        <li class>
+            <a class="has-arrow" href="{{ route('subjects.list') }}">
+                <div class="icon_menu">
+                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
+                </div>
+                <span>Subjects</span>
+            </a>
+        </li>
     </ul>
 </nav>

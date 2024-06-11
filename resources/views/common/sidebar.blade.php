@@ -78,5 +78,13 @@
                 <span>Subjects</span>
             </a>
         </li>
+        <li class>
+            <a class="has-arrow" href="{{ route('teacher.subject.mapping') }}">
+                <div class="icon_menu">
+                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
+                </div>
+                <span>Map Subjects to Teacher</span>
+            </a>
+        </li>
     </ul>
 </nav>

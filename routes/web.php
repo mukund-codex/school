@@ -87,6 +87,7 @@ Route::get('subject-delete/{id}', [SubjectController::class, 'destroy'])->name('
 
 // Teacher Subjects Mapping Routes
 Route::get('teacher-subject-mapping', [TeacherSubjectsMappingController::class, 'index'])->name('teacher.subject.mapping');
+Route::get('teacher-subject-mapping-add', [TeacherSubjectsMappingController::class, 'create'])->name('teacher.subject.mapping.add');
 Route::post('teacher-subject-mapping-create', [TeacherSubjectsMappingController::class, 'store'])->name('teacher.subject.mapping.create');
 Route::get('teacher-subject-mapping-edit/{id}', [TeacherSubjectsMappingController::class, 'edit'])->name('teacher.subject.mapping.edit');
 Route::post('teacher-subject-mapping-update/{id}', [TeacherSubjectsMappingController::class, 'update'])->name('teacher.subject.mapping.update');

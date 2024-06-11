@@ -4,19 +4,19 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteSubjectRequest extends FormRequest
+class DeleteTeacherSubjectsMappingRequest extends FormRequest
 {
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'id' => $this->route('id'),
+            'id' => (int) $this->route('id'),
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'id' => 'required|exists:subjects,id',
+            'id' => 'required|integer|exists:teacher_subjects_mappings,id',
         ];
     }
 

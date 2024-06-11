@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(StudentAttendance::class, 'student_id', 'id');
     }
+
+    public function teacherSubjectsMapping(): HasMany
+    {
+        return $this->hasMany(TeacherSubjectsMapping::class, 'teacher_id', 'id');
+    }
 }

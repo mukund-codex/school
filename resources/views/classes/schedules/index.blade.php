@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                         <div class="add_button ms-2">
-                                            <a href="{{ route('subjects.add') }}" data-bs-toggle="modal" data-bs-target="#addcategory"
+                                            <a href="{{ route('schedules.add') }}" data-bs-toggle="modal" data-bs-target="#addcategory"
                                                class="btn_1">Add New</a>
                                         </div>
                                     </div>
@@ -49,36 +49,45 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
+                                            <th scope="col">Teacher Name</th>
+                                            <th scope="col">Class Name</th>
+                                            <th scope="col">Division Name</th>
                                             <th scope="col">Subject Name</th>
                                             <th scope="col">Subject Code</th>
+                                            <th scope="col">Start Time</th>
+                                            <th scope="col">End Time</th>
+                                            <th scope="col">Date</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($subjects as $sub)
+                                        @foreach($schedules as $sch)
                                             @php
-                                             $i = 1;
-                                             @endphp
+                                                $i = 1;
+                                            @endphp
                                             <tr>
                                                 <td> @php echo $i; @endphp</td>
-                                                <td>{{ $sub['name'] }}</td>
-                                                <td>{{ $sub['code'] }}</td>
+                                                <td>{{ $sch['teacher']['first_name'] }}</td>
+                                                <td>{{ $sch['class']['name'] }}</td>
+                                                <td>{{ $sch['division']['name'] }}</td>
+                                                <td>{{ $sch['subject']['name'] }}</td>
+                                                <td>{{ $sch['subject']['code'] }}</td>
                                                 <td>
-                                                    @if($sub['status'])
+                                                    @if($sch['status'])
                                                         <a href="#" class="status_btn">Active</a>
                                                     @endif
 
-                                                    @if(! $sub['status'])
+                                                    @if(! $sch['status'])
                                                         <a href="#" class="status_btn">Inactive</a>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('subjects.edit', ['id' => $sub['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm">
+                                                    <a href="{{ route('subjects.edit', ['id' => $sch['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm">
                                                         <i class="las la-edit">Edit</i>
                                                     </a>
 
-                                                    <form method="GET" action="{{ route('subjects.delete', ['id' => $sub['id']]) }}">
+                                                    <form method="GET" action="{{ route('subjects.delete', ['id' => $sch['id']]) }}">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-rounded dark btn-sm">
                                                             <i class="las la-trash-alt"></i>Delete

@@ -74,4 +74,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TeacherSubjectsMapping::class, 'teacher_id', 'id');
     }
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(Schedules::class, 'teacher_id', 'id');
+    }
 }

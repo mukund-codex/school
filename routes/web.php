@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SchedulesController;
 use App\Http\Controllers\StudentAttendanceController;
 use App\Http\Controllers\StudentClassMappingController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentDetailsController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDetailsController;
@@ -58,7 +61,15 @@ Route::post('class-create', [ClassesController::class, 'store'])->name('classes.
 Route::get('class-edit/{id}', [ClassesController::class, 'edit'])->name('classes.edit');
 Route::post('class-update/{id}', [ClassesController::class, 'update'])->name('classes.update');
 Route::get('class-delete/{id}', [ClassesController::class, 'destroy'])->name('classes.delete');
+Route::get('class-status/{id}', [ClassesController::class, 'changeStatus'])->name('classes.status');
 
+//Division Routes
+Route::get('division-list/{id}', [DivisionController::class, 'index'])->name('divisions.list');
+Route::view('division-add', 'division.add')->name('divisions.add');
+Route::post('division-create', [DivisionController::class, 'store'])->name('divisions.create');
+Route::get('division-edit/{id}', [DivisionController::class, 'edit'])->name('divisions.edit');
+Route::post('division-update/{id}', [DivisionController::class, 'update'])->name('divisions.update');
+Route::get('division-delete/{id}', [DivisionController::class, 'destroy'])->name('divisions.delete');
 
 //Student Routes
 Route::get('student-list', [StudentController::class, 'index'])->name('students.list');
@@ -67,6 +78,24 @@ Route::post('student-create', [StudentController::class, 'store'])->name('studen
 Route::get('student-edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
 Route::post('student-update/{id}', [StudentController::class, 'update'])->name('students.update');
 Route::get('student-delete/{id}', [StudentController::class, 'destroy'])->name('students.delete');
+Route::get('student-status/{id}', [StudentController::class, 'changeStatus'])->name('students.status');
+
+//Student Class Mapping Routes
+Route::get('student-class-mapping', [StudentClassMappingController::class, 'index'])->name('students.class.list');
+Route::get('student-class-mapping-add', [StudentClassMappingController::class, 'create'])->name('students.class.add');
+Route::post('student-class-mapping', [StudentClassMappingController::class, 'store'])->name('students.class.create');
+Route::post('student-class-mapping/{id}', [StudentClassMappingController::class, 'edit'])->name('students.class.edit');
+Route::post('student-class-mapping-update/{id}', [StudentClassMappingController::class, 'update'])->name('students.class.update');
+Route::get('student-class-mapping-delete/{id}', [StudentClassMappingController::class, 'destroy'])->name('students.class.delete');
+Route::post('students-divisions-list', [StudentClassMappingController::class, 'getDivisions'])->name('students.divisions.list');
+
+
+//Student Details Routes
+Route::get('student-details/{id}', [StudentDetailsController::class, 'index'])->name('students.details');
+Route::view('student-details-add/{id}', 'students.details.add')->name('students.details.add');
+Route::post('student-details-create', [StudentDetailsController::class, 'store'])->name('students.details.create');
+Route::post('student-details-update/{id}', [StudentDetailsController::class, 'update'])->name('students.details.update');
+Route::get('student-details-delete/{id}', [StudentDetailsController::class, 'destroy'])->name('students.details.delete');
 
 Route::get('student-class-mapping', [StudentClassMappingController::class, 'index'])->name('students.class.list');
 Route::post('student-class-mapping', [StudentClassMappingController::class, 'store'])->name('students.class.create');
@@ -93,6 +122,13 @@ Route::get('teacher-subject-mapping-edit/{id}', [TeacherSubjectsMappingControlle
 Route::post('teacher-subject-mapping-update/{id}', [TeacherSubjectsMappingController::class, 'update'])->name('teacher.subject.mapping.update');
 Route::get('teacher-subject-mapping-delete/{id}', [TeacherSubjectsMappingController::class, 'destroy'])->name('teacher.subject.mapping.delete');
 
+//Schedules Routes
+Route::get('schedules', [SchedulesController::class, 'index'])->name('schedules.list');
+Route::get('schedules-add', [SchedulesController::class, 'create'])->name('schedules.add');
+Route::post('schedules-create', [SchedulesController::class, 'store'])->name('schedules.create');
+Route::get('schedules-edit/{id}', [SchedulesController::class, 'edit'])->name('schedules.edit');
+Route::post('schedules-update/{id}', [SchedulesController::class, 'update'])->name('schedules.update');
+Route::get('schedules-delete/{id}', [SchedulesController::class, 'destroy'])->name('schedules.delete');
 
 require __DIR__.'/auth.php';
 

@@ -63,7 +63,7 @@
             </a>
         </li>
         <li class>
-            <a class="has-arrow" href="{{ route('students.class.list') }}">
+            <a class="has-arrow" href="{{ route('schedules.list') }}">
                 <div class="icon_menu">
                     <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
                 </div>

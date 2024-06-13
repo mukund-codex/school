@@ -29,5 +29,10 @@ class Classes extends Model
     {
         return $this->hasMany(StudentAttendance::class, 'class_id', 'id');
     }
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(Schedules::class, 'class_id', 'id');
+    }
 }
 

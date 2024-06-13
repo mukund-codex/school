@@ -30,4 +30,9 @@ class Divisions extends Model
     {
         return $this->hasMany(StudentAttendance::class, 'division_id', 'id');
     }
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(Schedules::class, 'division_id', 'id');
+    }
 }

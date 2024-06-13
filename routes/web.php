@@ -131,7 +131,3 @@ Route::post('schedules-update/{id}', [SchedulesController::class, 'update'])->na
 Route::get('schedules-delete/{id}', [SchedulesController::class, 'destroy'])->name('schedules.delete');
 
 require __DIR__.'/auth.php';
-
-
-//VLCCKabir@202401
-//07059939335

@@ -62,7 +62,13 @@
                                         <tbody>
                                         @foreach($teachers as $teacher)
                                         <tr>
-                                            <td><img src="{{ asset($teacher['profile_picture']) }}" height="100" width="auto" alt="Not Uploaded"></td>
+                                            <td>
+                                                @if($teacher['profile_picture'])
+                                                    <img src="{{ asset($teacher['profile_picture']) }}" height="100" width="auto" alt="Not Uploaded">
+                                                @else
+                                                    <span>NO PROFILE PICTURE</span>
+                                                @endif
+                                            </td>
                                             <td>{{ $teacher['first_name'] }}</td>
                                             <td>{{ $teacher['last_name'] }}</td>
                                             <td>{{ $teacher['email'] }}</td>

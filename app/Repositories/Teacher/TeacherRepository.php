@@ -31,11 +31,16 @@ class TeacherRepository implements TeacherInterface
     public function create(array $data, array $file): array
     {
         $data['role'] = config('constants.ROLE.TEACHER');
-        $image = $file['profile_picture'];
-        $imageName = time() . '_' . $image->getClientOriginalName();
-        $folder = 'pictures/teacher';
-        $image->move(public_path($folder), $imageName);
-        $data['profile_picture'] = $folder . '/' . $imageName;
+        $data['profile_picture'] = '';
+        if (!empty($file['profile_picture']))
+        {
+            $image = $file['profile_picture'];
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $folder = 'pictures/teacher';
+            $image->move(public_path($folder), $imageName);
+            $data['profile_picture'] = $folder . '/' . $imageName;
+        }
+
 
         if ($this->user->create($data))
         {

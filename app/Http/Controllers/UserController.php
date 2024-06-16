@@ -39,7 +39,8 @@ class UserController extends Controller
 
     public function dashboard(): View
     {
-        return view('dashboard');
+        $dashboard = $this->userRepository->dashboardData();
+        return view('dashboard')->with('dashboard', $dashboard);
     }
 
     public function index()

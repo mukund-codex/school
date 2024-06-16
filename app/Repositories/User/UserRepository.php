@@ -2,6 +2,11 @@
 
 namespace App\Repositories\User;
 
+use App\Models\Classes;
+use App\Models\Divisions;
+use App\Models\StudentAttendance;
+use App\Models\Subjects;
+use App\Models\TeacherAttendance;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -110,5 +115,21 @@ class UserRepository implements UserInterface
             'message' => __('messages.logout.success'),
             'route' => 'login'
         ];
+    }
+
+    public function dashboardData(): array
+    {
+        $data = [];
+        $data['total_teachers'] = $this->user->where('role', 'teacher')->count();
+        $data['total_students'] = $this->user->where('role', 'student')->count();
+        $data['total_classes'] = Classes::where('status', true)->count();
+        $data['present_teachers'] = TeacherAttendance::where('date', date('Y-m-d'))->where('status', 'present')->count();
+        $data['absent_teachers'] = TeacherAttendance::where('date', date('Y-m-d'))->where('status', 'absent')->count();
+        $data['present_students'] = StudentAttendance::where('date', date('Y-m-d'))->where('status', 'present')->count();
+        $data['absent_students'] = StudentAttendance::where('date', date('Y-m-d'))->where('status', 'absent')->count();
+        $data['male_students'] = $this->user->where('role', 'student')->where('gender', 'male')->count();
+        $data['female_students'] = $this->user->where('role', 'student')->where('gender', 'female')->count();
+        $data['total_subjects'] = Subjects::count();
+        return $data;
     }
 }

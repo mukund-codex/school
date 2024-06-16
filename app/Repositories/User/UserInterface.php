@@ -15,4 +15,6 @@ interface UserInterface
     public function getTeachersList(): Collection;
 
     public function logoutHandler(): array;
+
+    public function dashboardData(): array;
 }

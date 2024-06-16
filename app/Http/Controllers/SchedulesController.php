@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddSchedulesRequest;
+use App\Http\Requests\DeleteScheduleRequest;
+use App\Http\Requests\GetScheduleRequest;
+use App\Http\Requests\UpdateSchedulesRequest;
 use App\Repositories\Schedules\ScheduleRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class SchedulesController extends Controller
@@ -29,17 +34,21 @@ class SchedulesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View|Application|Factory
     {
-        //
+        $teachers = $this->scheduleRepository->getTeachers();
+        $classes = $this->scheduleRepository->getClasses();
+        $subjects = $this->scheduleRepository->getSubjects();
+        return view('classes.schedules.add', compact('teachers', 'classes', 'subjects'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddSchedulesRequest $request): RedirectResponse
     {
-        //
+        $this->scheduleRepository->store($request->validated());
+        return redirect()->route('schedules.list');
     }
 
     /**
@@ -53,15 +62,20 @@ class SchedulesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(GetScheduleRequest $request): View|Application|Factory
     {
-        //
+        $teachers = $this->scheduleRepository->getTeachers();
+        $classes = $this->scheduleRepository->getClasses();
+        $subjects = $this->scheduleRepository->getSubjects();
+        $scheduleData = $this->scheduleRepository->getSchedule($request->validated('id'));
+        $schedule = $scheduleData[0];
+        return view('classes.schedules.edit', compact('teachers', 'classes', 'subjects', 'schedule'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateSchedulesRequest $request): RedirectResponse
     {
         //
     }
@@ -69,8 +83,9 @@ class SchedulesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(DeleteScheduleRequest $request): RedirectResponse
     {
-        //
+        $this->scheduleRepository->delete($request->validated('id'));
+        return redirect()->route('schedules.list');
     }
 }

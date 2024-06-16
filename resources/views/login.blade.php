@@ -4,17 +4,19 @@
 
 <body>
 
-<section class="main_content dashboard_part large_header_bg">
+<section class="dashboard_part large_header_bg">
 
-    <div class="main_content_iner ">
+    <div class="main_content_iner">
         <div class="container-fluid p-0">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="dashboard_header mb_50">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="dashboard_header_title">
-                                    <h3>Login</h3>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6" style="text-align: center;">
+                                    <div class="dashboard_header_title">
+                                        <h3>Login</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -57,7 +57,6 @@
                                             <th scope="col">Start Time</th>
                                             <th scope="col">End Time</th>
                                             <th scope="col">Date</th>
-                                            <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                         </thead>
@@ -73,21 +72,15 @@
                                                 <td>{{ $sch['division']['name'] }}</td>
                                                 <td>{{ $sch['subject']['name'] }}</td>
                                                 <td>{{ $sch['subject']['code'] }}</td>
+                                                <td>{{ $sch['start_time'] }}</td>
+                                                <td>{{ $sch['end_time'] }}</td>
+                                                <td>{{ $sch['date'] }}</td>
                                                 <td>
-                                                    @if($sch['status'])
-                                                        <a href="#" class="status_btn">Active</a>
-                                                    @endif
+{{--                                                    <a href="{{ route('schedules.edit', ['id' => $sch['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm">--}}
+{{--                                                        <i class="las la-edit">Edit</i>--}}
+{{--                                                    </a>--}}
 
-                                                    @if(! $sch['status'])
-                                                        <a href="#" class="status_btn">Inactive</a>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('subjects.edit', ['id' => $sch['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm">
-                                                        <i class="las la-edit">Edit</i>
-                                                    </a>
-
-                                                    <form method="GET" action="{{ route('subjects.delete', ['id' => $sch['id']]) }}">
+                                                    <form method="GET" action="{{ route('schedules.delete', ['id' => $sch['id']]) }}">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-rounded dark btn-sm">
                                                             <i class="las la-trash-alt"></i>Delete

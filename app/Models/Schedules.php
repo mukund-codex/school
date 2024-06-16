@@ -34,4 +34,9 @@ class Schedules extends Model
     {
         return $this->belongsTo(Divisions::class);
     }
+
+    public function subject(): BelongsTo
+    {
+        return $this->belongsTo(Subjects::class);
+    }
 }

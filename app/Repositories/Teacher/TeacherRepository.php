@@ -2,8 +2,12 @@
 
 namespace App\Repositories\Teacher;
 
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use App\Helpers\Helper;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class TeacherRepository implements TeacherInterface
 {
@@ -41,9 +45,13 @@ class TeacherRepository implements TeacherInterface
             $data['profile_picture'] = $folder . '/' . $imageName;
         }
 
+        $password = (new Helper)->generateRandomPassword();
+        $data['password'] = Hash::make($password);
 
         if ($this->user->create($data))
         {
+            $data['raw_password'] = $password;
+            Mail::to($data['email'])->send(new WelcomeMail($data));
             return [
                 'route' => 'teacher.list',
                 'status' => true,

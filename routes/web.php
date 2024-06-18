@@ -34,7 +34,7 @@ Route::view('teacher-add', 'teacher.add')->name('teacher.add');
 Route::post('teacher-create', [TeacherController::class, 'store'])->name('teacher.create');
 Route::get('teacher-edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
 Route::post('teacher-update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
-Route::get('teacher-delete/{id}', [TeacherController::class, 'destroy'])->name('teacher.delete');
+Route::delete('teacher-delete/{id}', [TeacherController::class, 'destroy'])->name('teacher.delete');
 Route::get('teacher-status/{id}', [TeacherController::class, 'changeStatus'])->name('teacher.status');
 
 //Teacher Details

@@ -2,9 +2,13 @@
 
 namespace App\Repositories\Students;
 
+use App\Helpers\Helper;
+use App\Mail\WelcomeMail;
 use App\Models\StudentEnrollment;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class StudentRepository implements StudentInterface
 {
@@ -32,8 +36,16 @@ class StudentRepository implements StudentInterface
         $image->move(public_path($folder), $imageName);
         $input['profile_picture'] = $folder . '/' . $imageName;
 
+        $password = (new Helper)->generateRandomPassword();
+        $data['password'] = Hash::make($password);
+
         if ($user = $this->user->create($input))
         {
+            if (!empty($data['email']))
+            {
+                $data['raw_password'] = $password;
+                Mail::to($data['email'])->send(new WelcomeMail($data));
+            }
             $this->studentEnrollment($user);
             return [
                 'route' => 'students.list',

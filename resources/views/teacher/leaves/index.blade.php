@@ -38,8 +38,10 @@
                                             </div>
                                         </div>
                                         <div class="add_button ms-2">
+                                            @if(session()->get('role') != 'admin')
                                             <a href="{{ route('leaves.add') }}" data-bs-toggle="modal" data-bs-target="#addcategory"
                                                class="btn_1">Request for Leave</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

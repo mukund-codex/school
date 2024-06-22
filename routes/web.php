@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\LeavesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchedulesController;
 use App\Http\Controllers\StudentAttendanceController;
@@ -26,7 +27,8 @@ Route::post('/login-handler', [UserController::class, 'loginHandler'])->name('lo
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
+    Route::post('/profile-update', [ProfileController::class, 'update'])->name('profile.update');
 
     //'logout-handler
     Route::get('/logout-handler', [UserController::class, 'logoutHandler'])->name('logout-handler');
@@ -132,6 +134,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('schedules-edit/{id}', [SchedulesController::class, 'edit'])->name('schedules.edit');
     Route::post('schedules-update/{id}', [SchedulesController::class, 'update'])->name('schedules.update');
     Route::get('schedules-delete/{id}', [SchedulesController::class, 'destroy'])->name('schedules.delete');
+
+    // Leaves Routes
+    Route::get('leaves', [LeavesController::class, 'index'])->name('leaves.list');
+    Route::view('leaves-add', 'teacher.leaves.add')->name('leaves.add');
+    Route::post('leaves-create', [LeavesController::class, 'store'])->name('leaves.create');
+    Route::get('leaves-edit/{id}', [LeavesController::class, 'edit'])->name('leaves.edit');
+    Route::post('leaves-update/{id}', [LeavesController::class, 'update'])->name('leaves.update');
+    Route::delete('leaves-delete/{id}', [LeavesController::class, 'destroy'])->name('leaves.delete');
+    Route::post('leaves-status/{id}', [LeavesController::class, 'changeStatus'])->name('leaves.status');
+
 });
 
 require __DIR__.'/auth.php';

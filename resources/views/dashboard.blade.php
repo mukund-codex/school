@@ -122,7 +122,7 @@
                         <br>
                     </div>
                     <div class="col-6">
-                        <div id="calendar"></div>
+                        <div id="calendar" style="display: none;"></div>
                     </div>
                 </div>
             </div>

@@ -146,5 +146,47 @@ return [
         'required' => 'Name is required',
         'string' => 'Name should be a string',
         'max' => 'Name should not be more than 255 characters',
-    ]
+    ],
+    'start_date' => [
+        'required' => 'Start Date is required',
+        'date' => 'Start Date should be a valid date',
+    ],
+    'end_date' => [
+        'required' => 'End Date is required',
+        'date' => 'End Date should be a valid date',
+    ],
+    'type' => [
+        'required' => 'Type is required',
+        'in' => 'Type should be one of the following: :values',
+    ],
+    'reason' => [
+        'required' => 'Reason is required',
+        'string' => 'Reason should be a string',
+        'max' => 'Reason should not be more than 255 characters',
+    ],
+    'comment' => [
+        'string' => 'Comment should be a string',
+        'max' => 'Comment should not be more than 255 characters',
+    ],
+    'approved_by' => [
+        'exists' => 'Approved By is invalid',
+    ],
+    'approved_at' => [
+        'date' => 'Approved At should be a valid date',
+    ],
+    'rejected_at' => [
+        'date' => 'Rejected At should be a valid date',
+    ],
+    'canceled_at' => [
+        'date' => 'Canceled At should be a valid date',
+    ],
+    'resumed_at' => [
+        'date' => 'Resumed At should be a valid date',
+    ],
+    'resumed_by' => [
+        'exists' => 'Resumed By is invalid',
+    ],
+    'canceled_by' => [
+        'exists' => 'Canceled By is invalid',
+    ],
 ];

@@ -38,8 +38,8 @@
                                 <p>{{ ucfirst(session()->get('role')) }} </p>
                             </div>
                             <div class="profile_info_details">
-                                <a href="#">My Profile </a>
-                                <a href="#">Settings</a>
+                                <a href="{{ route('profile') }}">My Profile </a>
+{{--                                <a href="#">Settings</a>--}}
                                 <a href="{{ route('logout-handler') }}">Log Out </a>
                             </div>
                         </div>

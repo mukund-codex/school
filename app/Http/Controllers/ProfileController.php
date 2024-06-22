@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -32,9 +33,20 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
+        if (!empty($request->password)) {
+            unset($request->user()->confirm_password);
+            $request->user()->password = hash::make($request->password);
+        }
+
+        if(empty($request->password))
+        {
+            unset($request->user()->password);
+            unset($request->user()->confirm_password);
+        }
+
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile')->with('status', 'profile-updated');
     }
 
     /**

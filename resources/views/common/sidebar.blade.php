@@ -14,6 +14,7 @@
                 <span>Dashboard</span>
             </a>
         </li>
+        @if(session()->get('role') == 'admin')
         <li class>
             <a class="has-arrow" href="{{ route('teacher.list') }}">
                 <div class="icon_menu">
@@ -38,6 +39,7 @@
                 <span>Students</span>
             </a>
         </li>
+        @endif
         <li class>
             <a class="has-arrow" href="{{ route('students.class.list') }}">
                 <div class="icon_menu">
@@ -46,6 +48,7 @@
                 <span>Student-Class Allotment</span>
             </a>
         </li>
+        @if(session()->get('role') == 'admin')
         <li class>
             <a class="has-arrow" href="{{ route('students.class.list') }}">
                 <div class="icon_menu">
@@ -54,6 +57,7 @@
                 <span>Teacher Attendance Report</span>
             </a>
         </li>
+        @endif
         <li class>
             <a class="has-arrow" href="{{ route('students.attendance') }}">
                 <div class="icon_menu">
@@ -70,6 +74,8 @@
                 <span>Class Schedule</span>
             </a>
         </li>
+
+        @if(session()->get('role') == 'admin')
         <li class>
             <a class="has-arrow" href="{{ route('subjects.list') }}">
                 <div class="icon_menu">
@@ -84,6 +90,16 @@
                     <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
                 </div>
                 <span>Map Subjects to Teacher</span>
+            </a>
+        </li>
+        @endif
+
+        <li class>
+            <a class="has-arrow" href="{{ route('leaves.list') }}">
+                <div class="icon_menu">
+                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
+                </div>
+                <span>Leaves</span>
             </a>
         </li>
     </ul>

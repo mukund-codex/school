@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('reason');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->text('comment')->nullable();
-            $table->foreignId('approved_by')->nullable()->constrained('teachers')->nullOnDelete();
+            $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('approved_at')->nullable();
             $table->timestamp('rejected_at')->nullable();
             $table->timestamp('canceled_at')->nullable();

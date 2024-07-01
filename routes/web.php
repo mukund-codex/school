@@ -78,7 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Student Routes
     Route::get('student-list', [StudentController::class, 'index'])->name('students.list');
-    Route::view('student-add', 'student.add')->name('students.add');
+    Route::view('student-add', 'students.add')->name('students.add');
     Route::post('student-create', [StudentController::class, 'store'])->name('students.create');
     Route::get('student-edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
     Route::post('student-update/{id}', [StudentController::class, 'update'])->name('students.update');

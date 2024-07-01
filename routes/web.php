@@ -70,7 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Division Routes
     Route::get('division-list/{id}', [DivisionController::class, 'index'])->name('divisions.list');
-    Route::view('division-add', 'division.add')->name('divisions.add');
+    Route::view('division-add', 'classes.divisions.add')->name('divisions.add');
     Route::post('division-create', [DivisionController::class, 'store'])->name('divisions.create');
     Route::get('division-edit/{id}', [DivisionController::class, 'edit'])->name('divisions.edit');
     Route::post('division-update/{id}', [DivisionController::class, 'update'])->name('divisions.update');

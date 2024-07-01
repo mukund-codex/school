@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Classes Routes
     Route::get('class-list', [ClassesController::class, 'index'])->name('classes.list');
-    Route::view('class-add', 'class.add')->name('classes.add');
+    Route::view('class-add', 'classes.add')->name('classes.add');
     Route::post('class-create', [ClassesController::class, 'store'])->name('classes.create');
     Route::get('class-edit/{id}', [ClassesController::class, 'edit'])->name('classes.edit');
     Route::post('class-update/{id}', [ClassesController::class, 'update'])->name('classes.update');

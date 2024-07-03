@@ -87,7 +87,7 @@
                                                         <i class="las la-edit">Edit</i>
                                                     </a>
 
-                                                    <form method="POST" action="{{ route('students.details.delete', ['id' => $stud['id']]) }}">
+                                                    <form method="POST" action="{{ route('students.delete', ['id' => $stud['id']]) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-rounded dark btn-sm">

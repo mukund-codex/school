@@ -32,11 +32,14 @@ class StudentRepository implements StudentInterface
     {
         $input['role'] = config('constants.ROLE.STUDENT');
 
-        $image = $file['profile_picture'];
-        $imageName = time() . '_' . $image->getClientOriginalName();
-        $folder = 'pictures/student';
-        $image->move(public_path($folder), $imageName);
-        $input['profile_picture'] = $folder . '/' . $imageName;
+        $input['profile_picture'] = null;
+        if (isset($file['profile_picture'])){
+            $image = $file['profile_picture'];
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $folder = 'pictures/student';
+            $image->move(public_path($folder), $imageName);
+            $input['profile_picture'] = $folder . '/' . $imageName;
+        }
 
         $password = (new Helper)->generateRandomPassword();
         $data['password'] = Hash::make($password);

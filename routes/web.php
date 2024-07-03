@@ -65,7 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('class-create', [ClassesController::class, 'store'])->name('classes.create');
     Route::get('class-edit/{id}', [ClassesController::class, 'edit'])->name('classes.edit');
     Route::post('class-update/{id}', [ClassesController::class, 'update'])->name('classes.update');
-    Route::get('class-delete/{id}', [ClassesController::class, 'destroy'])->name('classes.delete');
+    Route::delete('class-delete/{id}', [ClassesController::class, 'destroy'])->name('classes.delete');
     Route::get('class-status/{id}', [ClassesController::class, 'changeStatus'])->name('classes.status');
 
     //Division Routes

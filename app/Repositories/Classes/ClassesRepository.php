@@ -3,6 +3,9 @@
 namespace App\Repositories\Classes;
 
 use App\Models\Classes;
+use App\Models\Divisions;
+use App\Models\Schedules;
+use App\Models\StudentsClassesMapping;
 use Illuminate\Database\Eloquent\Collection;
 
 class ClassesRepository implements ClassesInterface
@@ -61,6 +64,9 @@ class ClassesRepository implements ClassesInterface
     public function delete(int $id): array
     {
         $class = $this->classes->where('id', $id)->first();
+        StudentsClassesMapping::where('class_id', $id)->delete();
+        Schedules::where('class_id', $id)->delete();
+        Divisions::where('class_id', $id)->delete();
         $class->delete();
 
         return [

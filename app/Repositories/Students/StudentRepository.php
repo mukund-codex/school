@@ -4,7 +4,9 @@ namespace App\Repositories\Students;
 
 use App\Helpers\Helper;
 use App\Mail\WelcomeMail;
+use App\Models\StudentAttendance;
 use App\Models\StudentEnrollment;
+use App\Models\StudentsClassesMapping;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
@@ -100,6 +102,8 @@ class StudentRepository implements StudentInterface
     public function delete(int $id): array
     {
         $user = $this->user->where('id', $id)->first();
+        StudentAttendance::where('student_id', $id)->delete();
+        StudentsClassesMapping::where('student_id', $id)->delete();
         if ($user->delete())
         {
             return [

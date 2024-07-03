@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('student-create', [StudentController::class, 'store'])->name('students.create');
     Route::get('student-edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
     Route::post('student-update/{id}', [StudentController::class, 'update'])->name('students.update');
-    Route::get('student-delete/{id}', [StudentController::class, 'destroy'])->name('students.delete');
+    Route::delete('student-delete/{id}', [StudentController::class, 'destroy'])->name('students.delete');
     Route::get('student-status/{id}', [StudentController::class, 'changeStatus'])->name('students.status');
 
     //Student Class Mapping Routes

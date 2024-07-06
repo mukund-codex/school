@@ -59,7 +59,7 @@
                                                 <td>{{ $attend['class']['name'] }}</td>
                                                 <td>{{ $attend['division']['name'] }}</td>
                                                 <td>{{ date('d-m-Y') }}</td>
-                                                <td>{{ !empty($attend['attendance']) ? ucfirst($attend['attendance']['status']) : NULL }}</td>
+                                                <td>{{ !empty($attend['attendance']) ? ucfirst($attend['attendance']['status']) : 'Not Marked' }}</td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-lg-6">

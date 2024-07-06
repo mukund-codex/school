@@ -59,7 +59,7 @@
                                                 <td><img src="{{ asset($attend['profile_picture']) }}" height="100" width="auto" alt="Not Uploaded"></td>
                                                 <td> {{ $attend['first_name'] }} {{ $attend['last_name'] }} </td>
                                                 <td>{{ date('d-m-Y') }}</td>
-                                                <td style="font-weight: bolder">{{ !empty($attend['teacher_attendance']) ? strtoupper($attend['teacher_attendance'][0]['status']) : NULL }}</td>
+                                                <td style="font-weight: bolder">{{ !empty($attend['teacher_attendance']) ? strtoupper($attend['teacher_attendance'][0]['status']) : 'Not Marked' }}</td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-lg-6">

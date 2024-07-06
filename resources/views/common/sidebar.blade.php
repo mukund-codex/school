@@ -50,7 +50,7 @@
         </li>
         @if(session()->get('role') == 'admin')
         <li class>
-            <a class="has-arrow" href="{{ route('students.class.list') }}">
+            <a class="has-arrow" href="{{ route('teachers.attendance') }}">
                 <div class="icon_menu">
                     <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
                 </div>

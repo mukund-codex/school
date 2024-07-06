@@ -13,7 +13,7 @@ class UpdateLeaveRequest extends FormRequest
         ]);
     }
 
-    public function rules(): array
+    public function rules(): arrayr
     {
         return [
             'id' => 'required|exists:leaves,id',

@@ -10,6 +10,7 @@ use App\Http\Controllers\StudentClassMappingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentDetailsController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherAttendanceController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDetailsController;
 use App\Http\Controllers\TeacherExperienceController;
@@ -143,6 +144,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('leaves-update/{id}', [LeavesController::class, 'update'])->name('leaves.update');
     Route::delete('leaves-delete/{id}', [LeavesController::class, 'destroy'])->name('leaves.delete');
     Route::post('leaves-status/{id}', [LeavesController::class, 'changeStatus'])->name('leaves.status');
+
+    // Teacher Attendance
+    Route::get('teacher-attendance', [TeacherAttendanceController::class, 'index'])->name('teachers.attendance');
+    Route::post('teacher-attendance', [TeacherAttendanceController::class, 'update'])->name('teachers.attendance.update');
 
 });
 

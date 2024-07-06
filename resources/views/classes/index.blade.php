@@ -69,8 +69,8 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('divisions.list', ['id' => $class['id']]) }}" class="btn btn-secondary btn-rounded dark btn-sm">
-                                                        <i class="las la-edit">Divisions List</i>
+                                                    <a href="{{ route('divisions.list', ['id' => $class['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm" style="font-size: 10px;font-weight: bolder">
+                                                        <i class="las la-edit">View Divisions List</i>
                                                     </a>
                                                 </td>
                                                 <td>

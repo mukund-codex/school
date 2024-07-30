@@ -26,18 +26,19 @@ class DivisionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(DivisionsRequest $request): View|Application|Factory
+    public function index(Request $request): View|Application|Factory
     {
-        $divisions = $this->divisionRepository->index($request->validated('id'));
+        $divisions = $this->divisionRepository->index();
         return view('classes.divisions.index', compact('divisions'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View|Application|Factory
     {
-        //
+        $classes = $this->divisionRepository->getClasses();
+        return view('classes.divisions.add', compact('classes'));
     }
 
     /**
@@ -46,7 +47,7 @@ class DivisionController extends Controller
     public function store(AddDivisionRequest $request): RedirectResponse
     {
         $response = $this->divisionRepository->store($request->validated());
-        return redirect()->route('divisions.list', ['id' => $request->validated('class_id')]);
+        return redirect()->route('divisions.list');
     }
 
     /**
@@ -63,7 +64,8 @@ class DivisionController extends Controller
     public function edit(GetDivisionRequest $request): View|Application|Factory
     {
         $division = $this->divisionRepository->getDivision($request->validated('id'));
-        return view('classes.divisions.edit', compact('division'));
+        $classes = $this->divisionRepository->getClasses();
+        return view('classes.divisions.edit', compact('division', 'classes'));
     }
 
     /**

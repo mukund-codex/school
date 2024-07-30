@@ -7,95 +7,72 @@
     </div>
     <ul id="sidebar_menu">
         <li class="mm-active">
-            <a class="has-arrow" href="{{ route('dashboard') }}">
+            <a class="" href="{{ route('dashboard') }}">
                 <div class="icon_menu">
                     <img src="{{ asset('temps/img/menu-icon/dashboard.svg') }}" alt>
                 </div>
                 <span>Dashboard</span>
             </a>
         </li>
-        @if(session()->get('role') == 'admin')
-        <li class>
-            <a class="has-arrow" href="{{ route('teacher.list') }}">
+        <li class="">
+            <a class="has-arrow" href="#" aria-expanded="true">
                 <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
+                    <img src="{{ asset('temps/img/menu-icon/2.svg') }}" alt="">
                 </div>
-                <span>Teacher</span>
+                <span>Class & Division</span>
             </a>
+            <ul class="mm-collapse">
+                <li><a href="{{ route('classes.list') }}">Classes</a></li>
+                <li><a href="{{ route('divisions.list') }}">Divisions</a></li>
+            </ul>
         </li>
         <li class>
-            <a class="has-arrow" href="{{ route('classes.list') }}">
-                <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
-                </div>
-                <span>Classes</span>
-            </a>
-        </li>
-        <li class>
-            <a class="has-arrow" href="{{ route('students.list') }}">
-                <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
-                </div>
-                <span>Students</span>
-            </a>
-        </li>
-        @endif
-        <li class>
-            <a class="has-arrow" href="{{ route('students.class.list') }}">
-                <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
-                </div>
-                <span>Student-Class Allotment</span>
-            </a>
-        </li>
-        @if(session()->get('role') == 'admin')
-        <li class>
-            <a class="has-arrow" href="{{ route('teachers.attendance') }}">
-                <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
-                </div>
-                <span>Teacher Attendance Report</span>
-            </a>
-        </li>
-        @endif
-        <li class>
-            <a class="has-arrow" href="{{ route('students.attendance') }}">
-                <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
-                </div>
-                <span>Student Attendance Report</span>
-            </a>
-        </li>
-        <li class>
-            <a class="has-arrow" href="{{ route('schedules.list') }}">
-                <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
-                </div>
-                <span>Class Schedule</span>
-            </a>
-        </li>
-
-        @if(session()->get('role') == 'admin')
-        <li class>
-            <a class="has-arrow" href="{{ route('subjects.list') }}">
+            <a class="" href="{{ route('subjects.list') }}">
                 <div class="icon_menu">
                     <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
                 </div>
                 <span>Subjects</span>
             </a>
         </li>
-        <li class>
-            <a class="has-arrow" href="{{ route('teacher.subject.mapping') }}">
+        <li class="">
+            <a class="has-arrow" href="#" aria-expanded="true">
                 <div class="icon_menu">
-                    <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
+                    <img src="{{ asset('temps/img/menu-icon/2.svg') }}" alt="">
                 </div>
-                <span>Map Subjects to Teacher</span>
+                <span>Teacher Module</span>
             </a>
+            <ul class="mm-collapse">
+                <li><a href="{{ route('teacher.list') }}">Teachers</a></li>
+                <li><a href="{{ route('teacher.subject.mapping') }}">Subjects</a></li>
+                <li><a href="{{ route('schedules.list') }}">Class Schedule</a></li>
+                <li><a href="{{ route('teachers.attendance') }}">Attendance</a></li>
+            </ul>
         </li>
+        <li class="">
+            <a class="has-arrow" href="#" aria-expanded="true">
+                <div class="icon_menu">
+                    <img src="{{ asset('temps/img/menu-icon/2.svg') }}" alt="">
+                </div>
+                <span>Student Module</span>
+            </a>
+            <ul class="mm-collapse">
+                <li><a href="{{ route('students.list') }}">Students</a></li>
+                <li><a href="{{ route('students.class.list') }}">Classes</a></li>
+                <li><a href="{{ route('students.attendance') }}">Attendance</a></li>
+            </ul>
+        </li>
+        @if(session()->get('role') == 'admin')
+        @endif
+
+        @if(session()->get('role') == 'admin')
+
+        @endif
+
+        @if(session()->get('role') == 'admin')
         @endif
 
         <li class>
-            <a class="has-arrow" href="{{ route('leaves.list') }}">
+            <a class="" href="{{ route('leaves.list') }}">
                 <div class="icon_menu">
                     <img src="{{ asset('temps/img/menu-icon/4.svg') }}" alt="">
                 </div>

@@ -4,19 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteLeaveRequest extends FormRequest
+class UploadClassRequest extends FormRequest
 {
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            'id' => (int) $this->route('id'),
-        ]);
-    }
-
     public function rules(): array
     {
         return [
-            'id' => 'required|exists:leaves,id',
+            'csv_file' => 'required|file|mimes:csv,txt',
         ];
     }
 

@@ -68,14 +68,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('class-update/{id}', [ClassesController::class, 'update'])->name('classes.update');
     Route::delete('class-delete/{id}', [ClassesController::class, 'destroy'])->name('classes.delete');
     Route::get('class-status/{id}', [ClassesController::class, 'changeStatus'])->name('classes.status');
+    Route::view('class-upload', 'classes.upload')->name('classes.upload');
+    Route::post('class-upload-handler', [ClassesController::class, 'upload'])->name('classes.upload-handler');
 
     //Division Routes
-    Route::get('division-list/{id}', [DivisionController::class, 'index'])->name('divisions.list');
-    Route::view('division-add', 'classes.divisions.add')->name('divisions.add');
+    Route::get('division-list', [DivisionController::class, 'index'])->name('divisions.list');
+    Route::get('division-add', [DivisionController::class, 'create'])->name('divisions.add');
     Route::post('division-create', [DivisionController::class, 'store'])->name('divisions.create');
     Route::get('division-edit/{id}', [DivisionController::class, 'edit'])->name('divisions.edit');
     Route::post('division-update/{id}', [DivisionController::class, 'update'])->name('divisions.update');
-    Route::get('division-delete/{id}', [DivisionController::class, 'destroy'])->name('divisions.delete');
+    Route::delete('division-delete/{id}', [DivisionController::class, 'destroy'])->name('divisions.delete');
 
     //Student Routes
     Route::get('student-list', [StudentController::class, 'index'])->name('students.list');

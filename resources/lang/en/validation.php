@@ -189,4 +189,9 @@ return [
     'canceled_by' => [
         'exists' => 'Canceled By is invalid',
     ],
+    'csv_file' => [
+        'required' => 'CSV File is required',
+        'file' => 'CSV File should be a file',
+        'mimes' => 'CSV File should be a CSV file',
+    ],
 ];

@@ -81,6 +81,34 @@
                             <div class="white_card_header">
                                 <div class="box_header m-0">
                                     <div class="main-title">
+                                        <h3 class="m-0">Class</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="white_card_body">
+                                <div class=" mb-0">
+                                    <div class>
+                                        <select class="form-control" name="class_id" id="class_id" required>
+                                            <option value="">Select Class</option>
+                                            @foreach($classes as $class)
+                                                <option value="{{ $class['id'] }}" @if($class['id'] == $division['class_id']) selected @endif>{{ $class['name'] }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('name')
+                                        <span class="text-danger ml-2" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
                                         <h3 class="m-0">Division Name</h3>
                                     </div>
                                 </div>
@@ -100,7 +128,6 @@
                         </div>
                     </div>
                     <div class="col-lg-10">
-                        <input type="hidden" name="class_id" id="class_id" value="{{ $division['class_id'] }}"/>
                     </div>
                     <div class="col-lg-2">
                         <button type="submit" name="submit" class="btn btn-primary btn-block" style="width: 100%;">Update Division</button>

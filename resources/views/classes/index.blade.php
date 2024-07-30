@@ -41,6 +41,10 @@
                                             <a href="{{ route('classes.add') }}" data-bs-toggle="modal" data-bs-target="#addcategory"
                                                class="btn_1">Add Class</a>
                                         </div>
+                                        <div class="add_button ms-2">
+                                            <a href="{{ route('classes.upload') }}" data-bs-toggle="modal" data-bs-target="#addcategory"
+                                               class="btn_1">Upload CSV</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="QA_table mb_30">

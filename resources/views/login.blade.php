@@ -46,6 +46,16 @@
                                             </div>
 
                                             <div class>
+                                                <input type="password" class="form-control" placeholder="Password" name="password"
+                                                id="password" value="{{ old('password') }}">
+                                                @error('password')
+                                                <span class="text-danger ml-2" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <div class>
                                                 <label for="name"></label>
                                                 <select class="form-control" name="role" id="name">
                                                     <option> Select your role</option>
@@ -62,15 +72,6 @@
                                                 @enderror
                                             </div>
                                             <br>
-                                            <div class>
-                                                <input type="password" class="form-control" placeholder="Password" name="password"
-                                                id="password" value="{{ old('password') }}">
-                                                @error('password')
-                                                <span class="text-danger ml-2" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
 
                                             <button type="submit" name="submit" class="btn btn-primary btn-block">Log In.</button>
 

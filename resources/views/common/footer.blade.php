@@ -158,12 +158,19 @@
 <script src="{{ asset('temps/vendors/datatable/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('temps/vendors/datatable/js/buttons.print.min.js') }}"></script>
 
-{{--<script src="{{ asset('temps/vendors/calender_js/core/main.js') }}"></script>--}}
-{{--<script src="{{ asset('temps/vendors/calender_js/interaction/main.js') }}"></script>--}}
-{{--<script src="{{ asset('temps/vendors/calender_js/daygrid/main.js') }}"></script>--}}
-{{--<script src="{{ asset('temps/vendors/calender_js/timegrid/main.js') }}"></script>--}}
-{{--<script src="{{ asset('temps/vendors/calender_js/list/main.js') }}"></script>--}}
-{{--<script src="{{ asset('temps/vendors/calender_js/activation.js') }}"></script>--}}
+<script src="{{ asset('temps/vendors/datepicker/datepicker.js') }}"></script>
+<script src="{{ asset('temps/vendors/datepicker/datepicker.custom.js') }}"></script>
+<script src="{{ asset('temps/js/chart.min.js') }}"></script>
+<script src="{{ asset('temps/vendors/chartjs/roundedBar.min.js') }}"></script>
+
+
+
+<script src="{{ asset('temps/vendors/calender_js/core/main.js') }}"></script>
+<script src="{{ asset('temps/vendors/calender_js/interaction/main.js') }}"></script>
+<script src="{{ asset('temps/vendors/calender_js/daygrid/main.js') }}"></script>
+<script src="{{ asset('temps/vendors/calender_js/timegrid/main.js') }}"></script>
+<script src="{{ asset('temps/vendors/calender_js/list/main.js') }}"></script>
+<script src="{{ asset('temps/vendors/calender_js/activation.js') }}"></script>
 <script src="{{ asset('temps/js/chart.min.js') }}"></script>
 
 <script src="{{ asset('temps/vendors/progressbar/jquery.barfiller.js') }}"></script>
@@ -182,3 +189,10 @@
 <script src="{{ asset('temps/vendors/chart_am/chart-custom.js') }}"></script>
 
 <script src="{{ asset('temps/js/custom.js') }}"></script>
+<script src="{{ asset('temps/js/dashboard_init.js') }}"></script>
+<script src="{{ asset('temps/vendors/vectormap-home/vectormap-2.0.2.min.js') }}"></script>
+<script src="{{ asset('temps/vendors/vectormap-home/vectormap-world-mill-en.js') }}"></script>
+<script src="{{ asset('temps/vendors/apex_chart/apex-chart2.js') }}"></script>
+
+<script src="{{ asset('temps/vendors/apex_chart/apex_dashboard.js') }}"></script>
+<script src="{{ asset('temps/vendors/echart/echarts.min.js') }}"></script>

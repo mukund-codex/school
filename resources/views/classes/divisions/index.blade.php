@@ -49,25 +49,19 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Class ID</th>
+                                            <th scope="col">Class Name</th>
                                             <th scope="col">Name</th>
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @php
+                                            $i = 1;
+                                        @endphp
                                         @foreach($divisions as $div)
                                             <tr>
-                                                <td>{{ $div['id'] }} </td>
-                                                <td>{{ $div['class_id'] }}</td>
+                                                <td>{{ $i }} </td>
+                                                <td>{{ $div['classes']['name'] }}</td>
                                                 <td>{{ $div['name'] }}</td>
-{{--                                                <td>--}}
-{{--                                                    @if($div['status'])--}}
-{{--                                                        <a href="{{ route('classes.status', ['id' => $div['id']]) }}" class="status_btn">Active</a>--}}
-{{--                                                    @endif--}}
-
-{{--                                                    @if(! $div['status'])--}}
-{{--                                                        <a href="{{ route('classes.status', ['id' => $div['id']]) }}" class="status_btn">Inactive</a>--}}
-{{--                                                    @endif--}}
-{{--                                                </td>--}}
                                                 <td>
                                                     <a href="{{ route('divisions.edit', ['id' => $div['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm">
                                                         <i class="las la-edit">Edit</i>
@@ -82,6 +76,9 @@
                                                     </form>
                                                 </td>
                                             </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
                                         @endforeach
                                         </tbody>
                                     </table>

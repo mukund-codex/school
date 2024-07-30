@@ -88,13 +88,13 @@
                                                 <a href="{{ route('teacher.edit', ['id' => $teacher['id']]) }}" class="btn btn-primary btn-rounded dark btn-sm">
                                                     <i class="las la-edit">Edit</i>
                                                 </a>
-
                                                 <form method="POST" action="{{ route('teacher.delete', ['id' => $teacher['id']]) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-rounded dark btn-sm">
                                                         <i class="las la-trash-alt"></i>Delete
                                                     </button>
+{{--                                                    <button class="btn btn-danger float-right" type="submit" name="delete">Delete</button>--}}
                                                 </form>
                                             </td>
                                         </tr>
@@ -112,6 +112,40 @@
         </div>
     </div>
 
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this item?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <form id="deleteForm" action="" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function confirmDelete(itemId) {
+            var form = document.getElementById('deleteForm');
+            form.action = '/items/' + itemId;
+            $('#deleteModal').modal('show');
+        }
+    </script>
     @include('common.footer')
 </section>
 

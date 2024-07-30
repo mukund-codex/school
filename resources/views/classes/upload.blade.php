@@ -72,7 +72,7 @@
     @include('common.search')
     <div class="main_content_iner ">
         <div class="container-fluid p-0 sm_padding_15px">
-            <form method="post" action="{{ route('divisions.create') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('classes.upload-handler') }}" enctype="multipart/form-data">
                 @csrf
                 @include('common.form-alert')
                 <div class="row justify-content-center">
@@ -81,20 +81,15 @@
                             <div class="white_card_header">
                                 <div class="box_header m-0">
                                     <div class="main-title">
-                                        <h3 class="m-0">Class</h3>
+                                        <h3 class="m-0">Upload CSV File.</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="white_card_body">
                                 <div class=" mb-0">
                                     <div class>
-                                       <select class="form-control" name="class_id" id="class_id" required>
-                                             <option value="">Select Class</option>
-                                             @foreach($classes as $class)
-                                               <option value="{{ $class['id'] }}">{{ $class['name'] }}</option>
-                                           @endforeach
-                                       </select>
-                                        @error('name')
+                                        <input type="file" class="form-control" name="csv_file" id="csv_file" placeholder="" required>
+                                        @error('csv_file')
                                         <span class="text-danger ml-2" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -104,33 +99,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="white_card card_height_100 mb_30">
-                            <div class="white_card_header">
-                                <div class="box_header m-0">
-                                    <div class="main-title">
-                                        <h3 class="m-0">Division Name</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="white_card_body">
-                                <div class=" mb-0">
-                                    <div class>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Division Name" value="{{ old('name') }}" required>
-                                        @error('name')
-                                        <span class="text-danger ml-2" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                    </div>
+                    <div class="col-lg-10"></div>
                     <div class="col-lg-2">
-                        <button type="submit" name="submit" class="btn btn-primary btn-block" style="width: 100%;">Create Division</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn-block" style="width: 100%;">Upload</button>
                     </div>
                 </div>
             </form>

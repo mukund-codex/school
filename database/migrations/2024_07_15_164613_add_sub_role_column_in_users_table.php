@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('leaves', function (Blueprint $table) {
-            $table->foreignId('rejected_by')->nullable()->constrained('users')->nullOnDelete();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('sub_role')->nullable()->after('role');
         });
     }
 
@@ -21,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('leaves', function (Blueprint $table) {
-            $table->dropForeign(['rejected_by']);
-            $table->dropColumn('rejected_by');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('sub_role');
         });
     }
 };

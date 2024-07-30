@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-primary"></div>
@@ -32,7 +32,7 @@
                                     <div class="widget-subheading">Total Teachers</div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-primary"></div>
@@ -42,7 +42,7 @@
                                     <div class="widget-subheading">Total Present Teachers</div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-danger"></div>
@@ -55,7 +55,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-primary"></div>
@@ -65,7 +65,7 @@
                                     <div class="widget-subheading">Total Students</div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-danger"></div>
@@ -75,7 +75,7 @@
                                     <div class="widget-subheading">Total Present Students</div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-danger"></div>
@@ -88,7 +88,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-danger"></div>
@@ -98,7 +98,7 @@
                                     <div class="widget-subheading">Total Male Students</div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-danger"></div>
@@ -108,7 +108,7 @@
                                     <div class="widget-subheading">Total Female Students</div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4">
                                 <div class="card mb-3 widget-chart">
                                     <div class="icon-wrapper rounded-circle">
                                         <div class="icon-wrapper-bg bg-danger"></div>
@@ -128,6 +128,8 @@
             </div>
         </div>
     </div>
+
+    @include('common.footer')
 </section>
 
 <script src="{{ asset('temps/vendors/calender_js/core/main.js') }}"></script>

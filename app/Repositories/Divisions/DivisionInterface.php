@@ -4,7 +4,7 @@ namespace App\Repositories\Divisions;
 
 interface DivisionInterface
 {
-    public function index(int $class_id): array;
+    public function index(): array;
 
     public function store(array $input): array;
 
@@ -13,4 +13,6 @@ interface DivisionInterface
     public function update(array $input): array;
 
     public function delete(int $id): int;
+
+    public function getClasses(): array;
 }

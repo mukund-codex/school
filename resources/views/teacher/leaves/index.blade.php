@@ -51,6 +51,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
+                                            <th scope="col">Teacher Name</th>
                                             <th scope="col">Type</th>
                                             <th scope="col">From Date</th>
                                             <th scope="col">To Date</th>
@@ -69,13 +70,14 @@
                                         @foreach($leaves as $lev)
                                             <tr>
                                                 <td>{{ $lev['id'] }} </td>
+                                                <td>{{ ($lev->teacher) ? $lev->teacher->first_name : '' }} {{ ($lev->teacher) ? $lev->teacher->last_name : '' }}</td>
                                                 <td>{{ ucfirst($lev['type']) }}</td>
                                                 <td>{{ $lev['start_date'] }}</td>
                                                 <td>{{ $lev['end_date'] }}</td>
                                                 <td>{{ $lev['reason'] }}</td>
                                                 <td>{{ ucfirst($lev['status']) }}</td>
                                                 <td>{{ $lev['comment'] }}</td>
-                                                <td>{{ $lev['approvedBy']['first_name'] }} {{ $lev['approvedBy']['last_name'] }}</td>
+                                                <td>{{ ($lev['approvedBy']) ? $lev['approvedBy']['first_name'] : '' }} {{ ($lev['approvedBy']) ? $lev['approvedBy']['last_name'] : ''}}</td>
                                                 <td>{{ ($lev['rejectedBy']) ? $lev['rejectedBy']['first_name'].' '.$lev['approvedBy']['last_name'] : '' }} </td>
                                                 <td>{{ $lev['canceled_by'] }}</td>
                                                 @if($lev['status'] == 'pending' && session()->get('role') == 'teacher')

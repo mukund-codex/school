@@ -7,6 +7,7 @@ use App\Http\Requests\ChangeClassStatusRequest;
 use App\Http\Requests\DeleteClassesRequest;
 use App\Http\Requests\GetClassesRequest;
 use App\Http\Requests\UpdateClassesRequest;
+use App\Http\Requests\UploadClassRequest;
 use App\Repositories\Classes\ClassesRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -88,5 +89,11 @@ class ClassesController extends Controller
     {
         $response = $this->classesRepository->changeStatus($request->validated()['id']);
         return redirect()->route($response['route'])->with($response['status'], $response['message']);
+    }
+
+    public function upload(UploadClassRequest $request): RedirectResponse
+    {
+        $response = $this->classesRepository->upload($request->file());
+//        return redirect()->route($response['route'])->with($response['status'], $response['message']);
     }
 }

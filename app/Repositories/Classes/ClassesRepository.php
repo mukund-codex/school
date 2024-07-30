@@ -7,6 +7,7 @@ use App\Models\Divisions;
 use App\Models\Schedules;
 use App\Models\StudentsClassesMapping;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 
 class ClassesRepository implements ClassesInterface
 {
@@ -74,5 +75,26 @@ class ClassesRepository implements ClassesInterface
             'status' => true,
             'message' => 'Class deleted successfully.'
         ];
+    }
+
+    public function upload(array $input): RedirectResponse
+    {
+        try {
+            $file = $input['csv_file'];
+            $path = $file->getRealPath();
+            $data = array_map('str_getcsv', file($path));
+            $header = array_shift($data);
+            foreach ($data as $row) {
+                $rowData = array_combine($header, $row);
+                Subject::create([
+                    'subject_name' => $rowData['subject_name'],
+                    'subject_code' => $rowData['subject_code'],
+                ]);
+            }
+
+            return back()->with('success', 'CSV data imported successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'There was an error processing the CSV file.');
+        }
     }
 }

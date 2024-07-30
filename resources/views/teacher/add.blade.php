@@ -76,6 +76,10 @@
                 @csrf
                 @include('common.form-alert')
                 <div class="row justify-content-center">
+                    <h4>Personal Details</h4>
+                </div>
+                <br>
+                <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="white_card card_height_100 mb_30">
                             <div class="white_card_header">
@@ -109,8 +113,8 @@
                                         <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" value="{{ old('first_name') }}" required>
                                         @error('first_name')
                                         <span class="text-danger ml-2" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -132,8 +136,8 @@
                                         <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" value="{{ old('last_name') }}" required>
                                         @error('last_name')
                                         <span class="text-danger ml-2" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -155,8 +159,8 @@
                                         <input type="text" class="form-control" placeholder="Enter your email" name="email" id="email" value="{{ old('email') }}" required>
                                         @error('email')
                                         <span class="text-danger ml-2" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -178,8 +182,8 @@
                                         <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Phone" required>
                                         @error('mobile')
                                         <span class="text-danger ml-2" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -201,8 +205,8 @@
                                         <input type="date" class="form-control" name="dob" id="dob" value="{{ old('dob') }}" required>
                                         @error('dob')
                                         <span class="text-danger ml-2" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -228,8 +232,8 @@
                                         </select>
                                         @error('dob')
                                         <span class="text-danger ml-2" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>

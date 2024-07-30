@@ -3,6 +3,7 @@
 namespace App\Repositories\Classes;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 
 interface ClassesInterface
 {
@@ -17,4 +18,6 @@ interface ClassesInterface
     public function update(array $input): array;
 
     public function delete(int $id): array;
+
+    public function upload(array $input): RedirectResponse;
 }

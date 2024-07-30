@@ -2,17 +2,19 @@
 
 namespace App\Repositories\Leaves;
 
-use App\Models\Leave;
 use App\Models\Leaves;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ScheduleService;
 
 class LeaveRepository implements LeaveInterface
 {
     protected Leaves $leave;
-    public function __construct(Leaves $leave)
+    protected ScheduleService $scheduleService;
+    public function __construct(Leaves $leave, ScheduleService $scheduleService)
     {
         $this->leave = $leave;
+        $this->scheduleService = $scheduleService;
     }
 
     public function index(): Collection
@@ -60,5 +62,9 @@ class LeaveRepository implements LeaveInterface
             $data['status'] . '_at' => now(),
             $data['status'] . '_by' => Auth::id(),
         ]);
+
+//        if($data['status'] == 'approved') {
+//            $this->scheduleService->updateSchedule($leave->teacher_id);
+//        }
     }
 }

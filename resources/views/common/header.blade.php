@@ -17,20 +17,15 @@
     <link rel="stylesheet" href="{{ asset('temps/css/style1.css') }}" />
     <link rel="stylesheet" href="{{ asset('temps/css/colors/default.css') }}" id="colorSkinCSS">
 
-    <link rel="stylesheet" href="{{ asset('temps/vendors/themefy_icon/themify-icons.css') }}" />
-
     <link rel="stylesheet" href="{{ asset('temps/vendors/niceselect/css/nice-select.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('temps/vendors/owl_carousel/css/owl.carousel.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('temps/vendors/gijgo/gijgo.min.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('temps/vendors/font_awesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('temps/vendors/tagsinput/tagsinput.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('temps/vendors/datepicker/date-picker.css') }}" />
-
-    <link rel="stylesheet" href="{{ asset('temps/vendors/scroll/scrollable.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('temps/vendors/datatable/css/jquery.dataTables.min.css') }}" />
     <link rel="stylesheet" href=""{{ asset('temps/vendors/datatable/css/responsive.dataTables.min.css') }} />
@@ -46,10 +41,6 @@
     <link rel="stylesheet" href="{{ asset('temps/vendors/calender_js/daygrid/main.css') }}">
     <link rel="stylesheet" href="{{ asset('temps/vendors/calender_js/timegrid/main.css') }}">
     <link rel="stylesheet" href="{{ asset('temps/vendors/calender_js/list/main.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('temps/css/metisMenu.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('temps/css/style1.css') }}" />
-    <link rel="stylesheet" href="{{ asset('temps/vendors/themefy_icon/themify-icons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('temps/vendors/vectormap-home/vectormap-2.0.2.css') }}">
 
 </head>

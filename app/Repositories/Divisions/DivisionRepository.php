@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Divisions;
 
+use App\Models\Classes;
 use App\Models\Divisions;
 
 class DivisionRepository implements DivisionInterface
@@ -13,9 +14,9 @@ class DivisionRepository implements DivisionInterface
         $this->division = $division;
     }
 
-    public function index(int $class_id): array
+    public function index(): array
     {
-        return $this->division->where('class_id', $class_id)->get()->toArray();
+        return $this->division->with('classes')->get()->toArray();
     }
 
     public function store(array $input): array
@@ -51,5 +52,10 @@ class DivisionRepository implements DivisionInterface
         $class_id = $class->class_id;
         $class->delete();
         return $class_id;
+    }
+
+    public function getClasses(): array
+    {
+        return Classes::get()->toArray();
     }
 }

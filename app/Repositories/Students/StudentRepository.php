@@ -138,9 +138,13 @@ class StudentRepository implements StudentInterface
 
     private function studentEnrollment(User $user): void
     {
+        $enrollment = StudentEnrollment::orderBy('id', 'desc')->first()->enrollment_number;
+        $enrollment_number = explode('REG', $enrollment);
+        $enrollment_number = (int) $enrollment_number[1] + 1;
+        $number = str_pad($enrollment_number, 10, '0', STR_PAD_LEFT);
         StudentEnrollment::create([
             'student_id' => $user->id,
-            'enrollment_number' => 'REG' . time(),
+            'enrollment_number' => 'REG' . $number,
         ]);
     }
 }
